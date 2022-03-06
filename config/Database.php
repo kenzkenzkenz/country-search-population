@@ -4,14 +4,12 @@
 
     $hostname = $dbparts['host'];
     $username = $dbparts['user'];
-    $password = $dbparts['pass'];
-    //$password = getenv('PASSWORD');
+    //$password = $dbparts['pass'];
+    $password = getenv('PASSWORD');
     $database = ltrim($dbparts['path'], '/');
 
     try{
-        //$conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-        $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
-
+        $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
         //set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully";
@@ -20,3 +18,22 @@
         {
             echo "Connection failed: " . $e->getMessage();
         }
+
+
+
+
+//old code below for localhosting
+    <!-- $host = 'localhost';
+    $db_name = 'world';
+    $username = 'root';
+    //$password = 'pa55word';
+
+    try {
+        $db = new PDO("mysql:host={$host};dbname={$db_name}", $username); //, $password
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        $error_message = 'Database Error: ';
+        $error_message .= $e->getMessage();
+        echo $error_message;
+        exit('Unable to connect to the database');
+    } -->

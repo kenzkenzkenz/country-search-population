@@ -4,8 +4,8 @@
 
     $hostname = $dbparts['host'];
     $username = $dbparts['user'];
-    //$password = $dbparts['pass'];
-    $password = getenv('PASSWORD');
+    $password = $dbparts['pass'];
+    //$password = getenv('PASSWORD');
     $database = ltrim($dbparts['path'], '/');
 
     try{

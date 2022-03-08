@@ -6,12 +6,6 @@
     $db_name = ltrim($dbparts['path'], '/');
     $username = $dbparts['user'];
     $password = $dbparts['pass'];
-    //$password = getenv('PASSWORD');
-
-    //$host = 'eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-    //$db_name = 'pw5d2fj3gsgx5v4g';
-    //$username = 'h5bl2txltjkl6hzh';
-    //$password = 'w8a2y7ktf3nczo8d';
 
     try {
         $db = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
